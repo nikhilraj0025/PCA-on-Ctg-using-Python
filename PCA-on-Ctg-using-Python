@@ -1,0 +1,25 @@
+import sklearn
+from sklearn import decomposition
+from sklearn.decomposition import PCA
+import pandas as pd
+ctg=pd.read_csv(r"C:\Users\AKHIL\Desktop\R csv\CTG.csv")
+print(ctg.shape)
+ctg1=ctg.iloc[:,[0,1,2]]
+
+pca=decomposition.PCA()
+from sklearn.preprocessing import StandardScaler
+scaler=StandardScaler()
+scaler.fit(ctg1)
+scaled_ctg1=scaler.transform(ctg1)
+
+ctg_pca1=pca.fit(scaled_ctg1)
+print(ctg_pca1)
+
+
+x_pca1=pca.transform(scaled_ctg1)
+print(x_pca1)
+x_pca1.shape
+
+pca.explained_variance_ratio_
+
+pca.explained_variance_ratio_.sum()
